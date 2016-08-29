@@ -260,15 +260,21 @@ int create_text(char fontFile[PATHNAME_LENGTH], int x, int y, char caption[MAX_T
     {
         strncpy(tag, p_tag, TAG_NAME_LENGTH);
     }
-    
+/*
+ * 
+ * Verificar que el archivo existe.
     TTF_Font* font = TTF_OpenFont(fontFile, size);
     if (font == NULL)
     {
-        printf("[UtalCanvas] No se puede cargar el archivo de fuetes: '%s'.\n", fontFile);
+        
+        printf("[UtalCanvas] No se puede cargar el archivo de fuentes: '%s'.\n", fontFile);
         return -1;
     }
     TTF_CloseFont(font);
+ * 
+ * 
     
+*/
     UtalCanvasText* text;
     text = (UtalCanvasText*)malloc( sizeof(UtalCanvasText));
     text->x = x;

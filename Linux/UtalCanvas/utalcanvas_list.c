@@ -119,6 +119,7 @@ void UtalCanvasListRemoveElementByTag(char tag[TAG_NAME_LENGTH])
                 node->next = NULL;
                 node->prev = NULL;
                 free(node);
+                return;
             }
             
         }

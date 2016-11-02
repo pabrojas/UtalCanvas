@@ -78,6 +78,14 @@ void UtalCanvasUtilsGetTag( UtalCanvasElementType type, void* data, char tag[TAG
             strncpy(tag, element->tag, TAG_NAME_LENGTH);
         }
     }
+    else if( type == UTALCANVAS_ELEMENT_SOUND )
+    {
+        UtalCanvasSound* element = (UtalCanvasSound*)data;
+        if(element->tag != NULL)
+        {
+            strncpy(tag, element->tag, TAG_NAME_LENGTH);
+        }
+    }
     
     
 }

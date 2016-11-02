@@ -334,3 +334,70 @@ struct UtalCanvasMouse mouse_state()
     return mouse;
 }
 
+
+int load_audio_wav_file(char filename[PATHNAME_LENGTH], ...)
+{
+    char tag[TAG_NAME_LENGTH];
+    va_list parameters;
+    va_start(parameters, filename);
+    char *p_tag = va_arg(parameters, char *);
+    
+    if(strlen(p_tag) == 0 || p_tag == NULL)
+    {
+        strncpy(tag, __no_tag, TAG_NAME_LENGTH);
+    }
+    else
+    {
+        strncpy(tag, p_tag, TAG_NAME_LENGTH);
+    }
+    
+
+    //Esto deberia ir en el init de la libreria
+    // Set up the audio stream
+    int result = Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 512);
+    if( result < 0 ){
+        fprintf(stderr, "Unable to open audio: %s\n", SDL_GetError());
+        exit(-1);
+    }
+    result = Mix_AllocateChannels(4);
+
+    if( result < 0 ){
+        fprintf(stderr, "Unable to allocate mixing channels: %s\n", SDL_GetError());
+        exit(-1);
+    }
+    //hasta aca deberia ir en el metodo init
+  
+    UtalCanvasSound* sound;
+          
+    sound = (UtalCanvasSound*)malloc( sizeof(UtalCanvasSound));
+    strncpy(sound->filename, filename, TAG_NAME_LENGTH);
+    strncpy(sound->tag, tag, TAG_NAME_LENGTH);
+    
+    sound->_sample = Mix_LoadWAV(filename);
+    
+
+    if( sound->_sample == NULL ){
+            fprintf(stderr, "Unable to load wave file: %s\n", filename);
+    }
+    
+    return UtalCanvasWindowAddElement(UTALCANVAS_ELEMENT_SOUND, sound );
+}
+
+void play_wav_file(int option, char tag[TAG_NAME_LENGTH]){
+    
+ 
+    UtalCanvasNode* node;
+    
+    node =  UtalCanvasWindowGetElementByTag(tag);
+    
+    if( node->type == UTALCANVAS_ELEMENT_SOUND )
+    {
+      
+        UtalCanvasSound* element = (UtalCanvasSound*)node->data;
+        if(element->tag != NULL)
+        {
+            Mix_PlayChannel(-1, element->_sample, option);
+        }
+    }
+   
+}

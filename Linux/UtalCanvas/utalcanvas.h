@@ -1,6 +1,7 @@
 /** 
  * File:   utalcanvas.h
  * Author: Pablo Ignacio Rojas Valdés (pabrojas@utalca.cl)
+ * Contributor: Felipe Andrés Besoaín Pino (fbesoain@utalca.cl)
  * 
  * Contiene todas las funciones definidas por la librería UtalCanvas.
  * 
@@ -19,6 +20,7 @@
  * su etuqueta. 
  *
  * Created on 15 de junio de 2016
+ * Modified on 2 de noviembre de 2016
  */
 
 #ifndef UTALCANVAS_H
@@ -202,6 +204,24 @@ extern "C" {
      * @return el índice del texto recién creado.
      */
     int create_text(char fontFile[PATHNAME_LENGTH], int x, int y, char caption[MAX_TEXT_LENGTH], int size, char color[COLOR_NAME_LENGTH], ...);
+    
+    
+    
+    /**
+     * 
+     * @param filename archivo WAV que tiene la fuente de sonido
+     * @param ... etiqueta de la linea, este parámetro es opconal.
+     * @return el índice del WAV recien cargado
+     */
+    int load_audio_wav_file(char filename[PATHNAME_LENGTH], ...);
+    
+    
+    /**
+     * 
+     * @param option -1 para sonido de background constante hasta el término de la aplicación, 0 para sonido de duración definida
+     * @param tag  etiqueta de la línea, este parámetro no es opcional.
+     */
+    void play_wav_file(int option, char tag[TAG_NAME_LENGTH]);
 
     /**
      * Elimina un elemento del mundo dado su índice.

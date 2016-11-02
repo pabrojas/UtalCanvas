@@ -174,6 +174,15 @@ void UtalCanvasWindowRemoveElementByTag(char tag[TAG_NAME_LENGTH])
     pthread_mutex_unlock(&__utalCanvasWindowMutex);
 }
 
+UtalCanvasNode* UtalCanvasWindowGetElementByTag(char tag[TAG_NAME_LENGTH])
+{
+    pthread_mutex_lock(&__utalCanvasWindowMutex);
+    UtalCanvasNode* node;
+    node = UtalCanvasListGetFirstElementByTag(tag);
+    pthread_mutex_unlock(&__utalCanvasWindowMutex);
+    return node;
+}
+
 void UtalCanvasWindowRemoveAllElement()
 {
     pthread_mutex_lock(&__utalCanvasWindowMutex);

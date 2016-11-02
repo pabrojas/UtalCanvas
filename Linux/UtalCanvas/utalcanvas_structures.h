@@ -12,6 +12,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include<SDL_mixer.h>
 
 #include "utalcanvas_definitions.h"
 
@@ -28,7 +29,8 @@ extern "C" {
         UTALCANVAS_ELEMENT_RECTANGLE,
         UTALCANVAS_ELEMENT_FILLED_RECTANGLE,
         UTALCANVAS_ELEMENT_TEXT,
-        UTALCANVAS_ELEMENT_IMAGE
+        UTALCANVAS_ELEMENT_IMAGE,
+        UTALCANVAS_ELEMENT_SOUND
     } UtalCanvasElementType;
     
     typedef struct UtalCanvasColor
@@ -84,6 +86,16 @@ extern "C" {
         UtalCanvasColor color;
         char tag[TAG_NAME_LENGTH];
     } UtalCanvasRectangle;
+    
+    
+    typedef struct UtalCanvasSound{
+    
+        char filename[PATHNAME_LENGTH];
+        char tag[TAG_NAME_LENGTH];
+        Mix_Chunk* _sample;
+    
+    }UtalCanvasSound;
+    
 
     typedef struct UtalCanvasFilledRectangle
     {

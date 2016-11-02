@@ -128,6 +128,31 @@ void UtalCanvasListRemoveElementByTag(char tag[TAG_NAME_LENGTH])
     while( node != __elementList );
 }
 
+UtalCanvasNode* UtalCanvasListGetFirstElementByTag(char tag[TAG_NAME_LENGTH])
+{
+    UtalCanvasSound* sound;
+    UtalCanvasNode* node = UtalCanvasListGetFirst();
+    
+    if(node == NULL)
+    {
+        printf("Error nodo vacio");
+        return node;
+    }
+    
+    do
+    {
+        if( strcmp(node->tag, tag) == 0 )
+        {
+            sound = (UtalCanvasSound*)node->data;
+            return node;
+        }
+        
+        node = node->next;
+    }
+    while( node != __elementList );
+   
+}
+
 void UtalCanvasListRemoveAllElement()
 {
     while( __elementList != NULL )
@@ -248,6 +273,7 @@ void UtalCanvasListFreeResources(UtalCanvasNode* node)
 {
     UtalCanvasImage* image;
     UtalCanvasText* text;
+    UtalCanvasSound* sound;
 
     
     switch(node->type)
@@ -272,6 +298,14 @@ void UtalCanvasListFreeResources(UtalCanvasNode* node)
             text->texture = NULL;
             text->textSurface = NULL;
             text->font = NULL;
+    
+            break;
+            
+        case UTALCANVAS_ELEMENT_SOUND:
+            sound = (UtalCanvasSound*)node->data;
+            Mix_FreeChunk(sound->_sample);
+            Mix_CloseAudio();
+            fflush(stdout);
             
             break;
     }

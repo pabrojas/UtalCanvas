@@ -17,4 +17,18 @@ problemas de compatibilidad en Windows se utilizaron las versiones de 32 bits de
 
 ## Configuración para Windows
 
+Para windows primero se debe instalar MinGW (Minimalist GNU for Windows para 32 bits) y una vez en el instalador de paquetes se debe marcar y luego instalar lo siguiente:
 
+* mingw-developer-toolkit
+* mingw32-base
+* mingw32-gcc-g++
+* msys-base
+
+Posterior a ello se debe descargar la última versión de la librería SDL 2.0 y las últimas versiones de SDL_mixer, SDL_ttf 
+y SDL_image. Debido a que se utilizó windows y MinGW entonces debemos descargar las librerías para desarrollo adecuadas. 
+Las versiones que se utilizaron para esta versión fueron:
+
+* [SDL2-devel-2.0.5-mingw.tar.gz](http://libsdl.org/release/SDL2-devel-2.0.5-mingw.tar.gz)
+* [SDL2_image-devel-2.0.1-mingw.tar.gz](http://libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.1-mingw.tar.gz)
+* [SDL2_mixer-devel-2.0.1-mingw.tar.gz](http://libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.1-mingw.tar.gz)
+* [SDL2_ttf-devel-2.0.14-mingw.tar.gz](http://libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.14-mingw.tar.gz)

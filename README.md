@@ -15,6 +15,9 @@ Universidad de Talca.
 La librería UtalCanvas fue desarrollada en C utilizando SDL 2 como librería gráfica en el IDE NetBeans 8.2. Para no tener 
 problemas de compatibilidad en Windows se utilizaron las versiones de 32 bits de SDL2, SDL_mixer, SDL_ttf y SDL_image.
 
+>**Nota:** si ocurre algún problema con la puesta en marcha de SDL se recomienda revisar los tutoriales e instalación de 
+>SDL2 en el sitio de [Lazy Foo' Productions](http://lazyfoo.net/tutorials/SDL/)
+
 ## Configuración para Windows
 
 Para windows primero se debe instalar MinGW (Minimalist GNU for Windows para 32 bits) y una vez en el instalador de paquetes se debe marcar y luego instalar lo siguiente:
@@ -33,7 +36,7 @@ Las versiones que se utilizaron para esta versión fueron:
 * [SDL2_mixer-devel-2.0.1-mingw.tar.gz](http://libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.1-mingw.tar.gz)
 * [SDL2_ttf-devel-2.0.14-mingw.tar.gz](http://libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.14-mingw.tar.gz)
 
-Descomprimimos los archivos en una carpeta, por ejemplo en **C:\SDL2**, y luego procedemos a configurar NetBeans.
+Se descomprimen los archivos en una carpeta, por ejemplo en **C:\SDL2**, y luego se procede a configurar NetBeans.
 Recordar que Utalcanvas para Windows utilizó las versiones de **32-bits**, por lo cual se referenciarán las carpetas
 **i686-w64-mingw32**. Para realizar la configuración, en las propiedades del proyecto UtalCanvas y se deben realizar
 las siguientes configuraciones: 
@@ -70,5 +73,19 @@ Los archivos a copiar se muestran en la siguiente figura:
 ![DLLs](https://lh3.googleusercontent.com/I3c8N5-yLsRp0r13_dR_D0OlMDyP8GzLFMIPPaa49TjMv7d2KXcLn0Q8N_ZkNajikCd0J8QSkqKNubIfF94Wp66g7tlRK2glg0fzYxw3njhb-_gPvrPYqhYrH16PB-aYt8-o_-oCZ8d8tm7nm3rSLY1fdjXDY5Sq9QCseVSS352OIGAfl9Xz-E3Hr2mcMXFhoWtAUBisYSIPWNMsMGNKcmNBDKtK4NzWsnOgR9syIZp7uaN0Sy6mnJILi72S2cWP0RBXN3CMDZFpq3S3egqqZHeLT7eI9ucLT24U7thzZHMG21iZyi1EMyNMxzz2FTDLPztPK6GHxLd3NNzeLgMBRt-zUdKpLkBW-Jr7WH9GrYkRfQ96NhYrhzuPf1ZupZmIAizjoi2MU4EZ8gjlVaJX0FiXSYqHbIawhypSvAMmbfvGfaPIwQjHZ1SsJYnskulO0tfOyZf2rjr2jOb_mAIw3-RIx9NqOS7E6xY4omXr_pgbsz2B01fwTl7yhMnq_w-uHjTrpnz2Bq5yYKVBtFB7ahFAJTcJelh0F0PQMmnEHl-YrGG--8QwshiwMfYjXpDAh_SvWXPALyxQMpBvJpE8lgJl-5gSyZ7ZdYNBHb8mGYjPelIGNV4=w538-h495-no)
 
 
->**Nota:** si ocurre algún problema con la puesta en marcha de SDL se recomienda revisar los tutoriales e instalación de SDL2 en el 
-> sitio de [Lazy Foo' Productions](http://lazyfoo.net/tutorials/SDL/)
+
+## Configuración para Linux (sistemas basados en Debian)
+
+Para los sitemas basados en Debian se debe instalar los paquetes de **SDL2**, **SDL2_image**, **SDL2_mixer** y **SDL2_ttf**. El comando a utilizar por consola es el siguiente:
+
+**apt-get install libdsl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev**
+
+Ahora se debe configurar NetBeans, en las propiedades del proyecto se deben realizar las siguientes modificaciones:
+
+1. En la sección **Build**, sub sección **C Compiler** para la propiedad **Include Directories** se debe agregar la siguiente
+   ruta: **/usr/include/SDL2**
+   
+2. En la sección **Build**, sub sección **Linker** para la propiedad **Additional Options** se deben agregar las siguientes
+   opcoines: **-lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lm -lpthread**
+   
+   

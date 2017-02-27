@@ -60,6 +60,15 @@ las siguientes configuraciones:
 
 3. En la sección **Build**, sub sección **Linker** se debe modificar la propiedad **Additional Options** y agregar las siguientes 
    opciones: **-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lm**
+   
 
-> **Nota: ** si ocurre algún problema con la puesta en marcha de SDL se recomienda revisar los tutoriales e instalación de SDL2 en el 
+El último paso para dejar operativa la configuración del sistema es copiar los **DLLs** de cada una de las librerías 
+descargadas a la carpeta C:\Windows\System32 para máquinas de 32-bits o a la carpeta C:\Windows\SysWOW64 para máquinas de 
+64-bits. Los archivos DLLs se encuentran en ls directorios **i686-w64-mingw32\bin** de cada una de las librerías descargadas. 
+Los archivos a copiar se muestran en la siguiente figura:
+
+![DLLs](https://lh3.googleusercontent.com/I3c8N5-yLsRp0r13_dR_D0OlMDyP8GzLFMIPPaa49TjMv7d2KXcLn0Q8N_ZkNajikCd0J8QSkqKNubIfF94Wp66g7tlRK2glg0fzYxw3njhb-_gPvrPYqhYrH16PB-aYt8-o_-oCZ8d8tm7nm3rSLY1fdjXDY5Sq9QCseVSS352OIGAfl9Xz-E3Hr2mcMXFhoWtAUBisYSIPWNMsMGNKcmNBDKtK4NzWsnOgR9syIZp7uaN0Sy6mnJILi72S2cWP0RBXN3CMDZFpq3S3egqqZHeLT7eI9ucLT24U7thzZHMG21iZyi1EMyNMxzz2FTDLPztPK6GHxLd3NNzeLgMBRt-zUdKpLkBW-Jr7WH9GrYkRfQ96NhYrhzuPf1ZupZmIAizjoi2MU4EZ8gjlVaJX0FiXSYqHbIawhypSvAMmbfvGfaPIwQjHZ1SsJYnskulO0tfOyZf2rjr2jOb_mAIw3-RIx9NqOS7E6xY4omXr_pgbsz2B01fwTl7yhMnq_w-uHjTrpnz2Bq5yYKVBtFB7ahFAJTcJelh0F0PQMmnEHl-YrGG--8QwshiwMfYjXpDAh_SvWXPALyxQMpBvJpE8lgJl-5gSyZ7ZdYNBHb8mGYjPelIGNV4=w538-h495-no)
+
+
+>**Nota:** si ocurre algún problema con la puesta en marcha de SDL se recomienda revisar los tutoriales e instalación de SDL2 en el 
 > sitio de [Lazy Foo' Productions](http://lazyfoo.net/tutorials/SDL/)

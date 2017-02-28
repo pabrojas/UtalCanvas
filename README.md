@@ -76,7 +76,7 @@ Los archivos a copiar se muestran en la siguiente figura:
 
 ## Configuración para Linux (sistemas basados en Debian)
 
-Para los sitemas basados en Debian se debe instalar los paquetes de **SDL2**, **SDL2_image**, **SDL2_mixer** y **SDL2_ttf**. El comando a utilizar por consola es el siguiente:
+Para los sistemas basados en Debian se debe instalar los paquetes de **SDL2**, **SDL2_image**, **SDL2_mixer** y **SDL2_ttf**. El comando a utilizar por consola es el siguiente:
 
 **apt-get install libdsl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev**
 
